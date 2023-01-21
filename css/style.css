@@ -1,0 +1,467 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Amaranth', sans-serif;
+    overflow: hidden;
+}
+
+.container{
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px 0 5px 0;
+    min-height: 100vh;
+    background: url('../img/header-bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.header__wrapper{
+    width: 400px;
+    padding: 20px;
+    border-radius: 30%;
+    background: #ccc;
+}
+.header__title{
+    margin-bottom: 20px;
+}
+.header__btn{
+    
+    display: inline-block;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 26px;
+    background-color: rgb(160, 125, 192);
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    width: 200px;
+    height: 40px;
+    padding: 5px;
+    line-height: 35px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+}
+.header__btn:hover{
+    background-color: rgb(114, 75, 151);
+    color:#fff;
+}
+
+.header__img{
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    
+}
+
+.players__wrapper{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.player1, .player2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: #000000;
+}
+.player1{
+    width: 200px;
+    height: 200px;
+    border-radius: 0 0 80% 0%;
+    border: 1px solid transparent;
+    position: absolute;
+    left: 0;
+    top: -50px;
+    transition: all 0.3s ease-in;
+}
+.player2{
+    width: 200px;
+    height: 200px;
+    border-radius: 0 0 0 80%;
+    border: 1px solid transparent;
+    position: absolute;
+    right: 0;
+    top: -50px;
+    transition: all 0.3s ease-in;
+}
+.score{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    width: 50px;
+    height: 50px;
+    line-height: 20px;
+}
+
+.main{
+    background: url('../img/bg2.jpg');
+    /* background-color: rgb(247, 230, 230); */
+    height: 0;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    padding: 50px 0;
+    /* visibility: hidden; */
+    opacity: 0;
+    transition: all 0.5s ease-in;
+}
+
+
+.game{
+    position: absolute;
+    transform: translate(-50%, 0%);
+    left: 50%;
+    width: 800px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+    transition: all 0.7s ease-in;
+    
+}
+
+
+.game__card{
+    max-width: 198px;
+    width: 100%;
+    height: 190px;
+    margin: 1px;
+    position: relative;
+    transform: scale(1);
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+.game__card:active{
+    transform: scale(0.97);
+    transition: transform 0.2s;
+}
+.game__card.flip{
+    transform: rotateY(180deg);
+}
+
+.game__img-left, .game__img-right{
+    position: absolute;
+    display: block;
+    width: 300px;
+    top: 150px;
+    z-index: 1;
+}
+.game__img-left{
+    left: -100%;
+    transition: all 0.6s ease-in;
+}
+.game__img-right{
+    right: -100%;
+    transition: all 0.6s ease-in;
+}
+
+
+
+.back__face{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(114, 75, 151);
+    backface-visibility: hidden;
+    
+}
+
+.front__face{
+    position: absolute;
+    background-color:rgb(160, 125, 192);
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+}
+
+.collor{
+    color: red;
+    font-weight: bold;
+    border: 1px solid red;
+    box-shadow: 0 0 11px 4px;
+}
+
+.hide{
+    transform: translate(-50%, -200% ) !important;
+    transition: all 0.7s ease-in;
+}
+
+.overlay-hide{
+    transform: translateY(-200% );
+    transition: all 0.7s ease-in;
+}
+
+.winner{
+    color: green;
+    font-weight: bold;
+    border: 1px solid green;
+}
+
+.draw{
+    color: yellow;
+    border: 1px solid yellow;
+    box-shadow: 0 0 14px 1px;
+}
+
+.show{
+    display: block !important;
+}
+
+.restart {
+    display: none;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    line-height: 26px;
+    background-color: rgb(160, 125, 192);
+    color: #000;
+    text-align: center;
+    border: none;
+    border-radius: 6px;
+    width: 200px;
+    height: 40px;
+    padding: 5px;
+    line-height: 35px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+}
+.restart:hover{
+    background-color: rgb(114, 75, 151);
+    color:#fff;
+}
+
+.remove{
+    display: none;
+}
+
+.scroll{
+    overflow: hidden;
+}
+
+.overlay{
+    width: 100%;
+    height: 577px;
+    position: absolute;
+    background:#080808cc;
+    z-index: 1;
+    opacity: 0.8;
+    transition: all 0.3s ease-in;
+}
+
+.up {
+   
+   opacity: 1;
+    /* margin-top: -757px; */
+    /* padding: 50px 0; */
+    /* min-height: 100vh; */
+
+}
+
+.game-over{
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100px;
+    font-size: 0px;
+    color: #fff;
+    transition: all 0.7s ease-in;
+}
+
+.size {
+    font-size: 35px !important;
+}
+
+.perfect-left{
+    left: 0 !important;
+}
+.perfect-right{
+    right: 0 !important;
+}
+
+.success-left, .success-right{
+    display: block;
+    width: 300px;
+    position: absolute;
+    top: 175px;
+    transition: all 0.3s ease-in;
+}
+
+.success-right{
+    right: -100%;
+}
+
+.success-left{
+    left: -100%;
+}
+.header-hide{
+    opacity: 0;
+    min-height: auto;
+    height: 0;
+    padding: 0;
+}
+/* .bg-right{
+    background: green;
+    position: absolute;
+    top: -50px;
+    right: 0;
+    width: 50%;
+    height: 120%;
+}
+.bg-left{
+    background: red;
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 50%;
+    height: 120%;
+} */
+
+@media(max-width: 1200px) {
+    .player1, .player2 {
+        width: 110px;
+        height: 130px;
+    }
+    .player1 .score{
+        margin-right: 25px;
+    }
+    .player2 .score{
+        margin-left: 25px;
+    }
+}
+
+@media(max-width: 1000px) {
+    .game__card{
+        max-width: 148px;
+        height: 160px;
+    }
+    .game{
+        width: 600px;
+        transform: translate(-50%, 15%);
+    }
+    .game__img-left, .game__img-right{
+        width: 200px;
+    }
+    .overlay{
+        height: 485px;
+    }
+    .success-left, .success-right{
+        top: 110px;
+    }
+    .restart{
+        bottom: 40%;
+        transform: translate(-50%, -40%);
+    }
+}
+
+@media(max-width: 610px) {
+    .game{
+        width: 430px;
+    }
+    .game__card{
+        width: 140px;
+        height: 140px;
+    }
+    .overlay{
+        height: 100%;
+        width: 99%;
+    }
+    .perfect-right{
+        right: -20px !important;
+    }
+    .perfect-left{
+        left: -20px !important;
+    }
+    .game-over{
+        top: 260px;
+    }
+    .restart{
+        transform: translateX(-50%);
+        bottom: 210px;
+    }
+    .front__face{
+        padding: 10px;
+    }
+        
+}
+
+@media (max-width: 435px) {
+    .header__wrapper{
+    width: 350px;
+    }
+    .game__card{
+        width: 124px;
+        height: 130px;
+    }
+    .game{
+        width: 380px;
+    }
+    .front__face{
+        padding: 5px;
+    }
+}
+
+@media (max-width: 385px) {
+    .header__wrapper{
+        width: 290px;
+        border-radius: 15%;
+        }
+    .header__title{
+        font-size: 30px;
+    }
+    .game{
+        width: 320px;
+    }
+    .game__card{
+        width: 104px;
+        height: 120px;
+    }
+    .size{
+        font-size: 30px !important;
+    }
+    .player1, .player2{
+        font-size: 20px;
+        width: 90px;
+        height: 110px;
+    }
+    .perfect-left{
+        left: -30px !important;
+    }
+    .perfect-right{
+        right: -30px !important;
+    }
+}
+
+@media (max-width: 330px){
+    .game__card{
+        width: 100px;
+        height: 120px;
+    }
+    .game{
+        width: 306px;
+    }
+}
