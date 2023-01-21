@@ -159,12 +159,15 @@ const gameOverResults = () => {
 
 const gameOver = () => {
     if(score > score2) {
+        firstPlayer.classList.remove('color');
         firstPlayer.classList.add('winner');
         setTimeout(function() {
             finishImgLeft.classList.add('perfect-left');
         }, 2000);
         
     } else if(score === score2) {
+        firstPlayer.classList.remove('color');
+        secondPlayer.classList.remove('color');
         secondPlayer.classList.add('draw');
         firstPlayer.classList.add('draw');
         setTimeout(function() {
@@ -173,6 +176,7 @@ const gameOver = () => {
         },2000 );
         
     } else {
+        secondPlayer.classList.remove('color');
         secondPlayer.classList.add('winner');
         setTimeout(function() {
             finishImgRight.classList.add('perfect-right');

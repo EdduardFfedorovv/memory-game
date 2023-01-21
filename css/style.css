@@ -216,10 +216,12 @@ body{
     color: green;
     font-weight: bold;
     border: 1px solid green;
+    box-shadow: 0 0 14px 1px;
 }
 
 .draw{
     color: yellow;
+    font-weight: bold;
     border: 1px solid yellow;
     box-shadow: 0 0 14px 1px;
 }
