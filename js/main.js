@@ -20,7 +20,6 @@ const restart = document.querySelector('.restart');
 const overlay = document.querySelector('.overlay');
 const finishMessage = document.querySelector('.game-over');
 
-const body = document.querySelector('#scroll');
 
 let hasFlipedCard = false;
 let boardLock = false;
@@ -41,7 +40,6 @@ start.addEventListener('click', function() {
     gameArea.classList.remove('hide');
     main.classList.add('up');
     start.classList.add('remove');
-    // body.classList.add('scroll');
 });
 
 
@@ -53,8 +51,6 @@ const flipCard = e => {
 
    target.classList.add('flip');
    
-
-   console.log(target.dataset.img);
 
    if(!hasFlipedCard) {
         hasFlipedCard = true;
@@ -69,9 +65,10 @@ const flipCard = e => {
 
 const checkForMatch = () => {
     if(firstCard.dataset.img === secondCard.dataset.img) {
-        
+        disableCards();
         if(firstPlayer.classList.contains('collor')){
             calcScore();
+
         } else if(secondPlayer.classList.contains('collor')) {
             calcScore2();
         }
@@ -193,10 +190,8 @@ const restartGame = () => {
 
 cards.forEach(card => {
     card.addEventListener('click', flipCard);
-
     const randomIndex = Math.floor(Math.random() * cards.length);
     card.style.order = randomIndex;
-
 });
 
 
