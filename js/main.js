@@ -20,7 +20,6 @@ const restart = document.querySelector('.restart');
 const overlay = document.querySelector('.overlay');
 const finishMessage = document.querySelector('.game-over');
 
-
 let hasFlipedCard = false;
 let boardLock = false;
 let firstCard, secondCard;

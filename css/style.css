@@ -343,6 +343,12 @@ body{
     height: 120%;
 } */
 
+@media(max-width: 1400px) {
+    .game{
+        transform: translate(-50%, -10%);
+    }
+}
+
 @media(max-width: 1200px) {
     .player1, .player2 {
         width: 110px;
@@ -353,6 +359,9 @@ body{
     }
     .player2 .score{
         margin-left: 25px;
+    }
+    .game{
+        transform: translate(-50%, 0);
     }
 }
 
